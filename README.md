@@ -12,15 +12,18 @@ Import all records in a Fulcrum form into a Mapbox Dataset.
 git clone https://github.com/JasonSanford/fulcrum-mapbox-dataset.git
 cd fulcrum-mapbox-dataset
 npm install
-./index.js
 ```
 
 ### Usage
 
 From a terminal window:
 
+~~`fulcrum-mapbox-dataset`~~
+
+**For now just do the following until this is npm-published**
+
 ```bash
-fulcrum-mapbox-dataset
+./index.js
 ```
 
 From there you'll be prompted for:
