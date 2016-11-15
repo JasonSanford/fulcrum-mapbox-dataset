@@ -1,0 +1,23 @@
+{
+  "name": "fulcrum-mapbox-dataset",
+  "version": "0.0.0",
+  "description": "Create a Mapbox Dataset from a Fulcrum App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fulcrum",
+    "mapbox",
+    "dataset"
+  ],
+  "author": "Jason Sanford",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "async": "^2.1.2",
+    "fulcrum-app": "^1.5.0",
+    "fulcrum-core": "github:fulcrumapp/fulcrum-core#master",
+    "mapbox": "^1.0.0-beta5",
+    "minimist": "^1.2.0"
+  }
+}
