@@ -4,7 +4,16 @@ Import all records in a Fulcrum form into a Mapbox Dataset.
 
 ## Installation
 
-`npm install fulcrum-mapbox-dataset`
+~~`npm install fulcrum-mapbox-dataset`~~
+
+**For now just do the following until this is npm-published**
+
+```bash
+git clone https://github.com/JasonSanford/fulcrum-mapbox-dataset.git
+cd fulcrum-mapbox-dataset
+npm install
+./index.js
+```
 
 ### Usage
 
