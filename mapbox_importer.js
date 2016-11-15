@@ -1,34 +1,18 @@
-const Fulcrum = require('fulcrum-app');
-const Mapbox = require('mapbox');
 const series = require('async/series');
 
 const fulcrumCore = require('./core');
 
 module.exports = class MapboxImporter {
-  constructor(formId, fulcrumToken, mapboxToken, datasetName) {
+  constructor(form, fulcrumClient, mapboxClient, datasetName) {
     this.pageSize = 50;
 
-    this.formId = formId;
     this.datasetName = datasetName;
 
-    this.fulcrumClient = new Fulcrum({api_key: fulcrumToken});
-    this.mapboxClient = new Mapbox(mapboxToken);
+    this.form = form;
+    this.fulcrumClient = fulcrumClient;
+    this.mapboxClient = mapboxClient;
 
-    this.getForm();
-  }
-
-  getForm() {
-    this.fulcrumClient.forms.find(this.formId, function (error, resp) {
-      if (error) return console.log(error);
-
-      this.form = new fulcrumCore.Form(resp.form);
-
-      if (!this.datasetName) {
-        this.datasetName = this.form.name;
-      }
-
-      this.countRecords();
-    }.bind(this));
+    this.countRecords();
   }
 
   countRecords() {

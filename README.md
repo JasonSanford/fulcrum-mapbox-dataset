@@ -1,21 +1,24 @@
 ## fulcrum-mapbox-dataset
 
+Import all records in a Fulcrum form into a Mapbox Dataset.
+
 ## Installation
 
 `npm install fulcrum-mapbox-dataset`
 
 ### Usage
 
+From a terminal window:
+
 ```bash
-fulcrum-mapbox-dataset FORM_ID FULCRUM_TOKEN MAPBOX_TOKEN [options]
+fulcrum-mapbox-dataset
 ```
 
-### Arguments
+From there you'll be prompted for:
 
-* `FORM_ID` - **required** - A Fulcrum form id to push to a Mapbox Dataset
-* `FULCRUM_TOKEN` - **required** - A Fulcrum API token for reading records in a form
-* `MAPBOX_TOKEN` - **required** - A Mapbox API token for creating datasets and features
+* a Fulcrum API token (unless you've got one at ~/.fulcrumrc)
+* a Mapbox API token (unless you've got one at ~/.mapboxrc)
+* which Fulcrum form you want to import - The API token above is used to get a list of forms for your account
+* a Mapbox Dataset name (defaults to the Fulcrum form name)
 
-## Options
-
-* `--dataset_name` - What to name your Mapbox dataset. Defaults to the Fulcrum form name
+Then, hopefully magic?
