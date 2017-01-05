@@ -24,7 +24,6 @@ module.exports = class MapboxImporter {
 
       if (this.recordCount > 0) {
         this.createDataset();
-        //this.fetchRecords();
       } else {
         return console.log('No records to import');
       }
@@ -48,7 +47,7 @@ module.exports = class MapboxImporter {
     for (let i = 1; i <= this.pagesNeeded; i++) {
       tasks.push(
         function (callback) {
-          console.log(`Fetching page ${i} of ${this.pagesNeeded}`);
+          console.log(`Fetching page ${i} of ${this.pagesNeeded} from Fulcrum`);
           this.fulcrumClient.records.search({form_id: this.form.id, per_page: this.pageSize, page: i}, callback);
         }.bind(this)
       );
@@ -78,10 +77,10 @@ module.exports = class MapboxImporter {
   pushRecords() {
     const tasks = [];
 
-    for (let i = 1; i <= this.records.length; i++) {
+    for (let i = 0; i < this.records.length; i++) {
       tasks.push(
         function (callback) {
-          console.log(`Pushing record ${i} of ${this.records.length}.`);
+          console.log(`Pushing record ${i + 1} of ${this.records.length} to Mapbox`);
           this.mapboxClient.insertFeature(this.records[i].toGeoJSONFeature(), this.dataset.id, callback);
         }.bind(this)
       );
@@ -90,7 +89,7 @@ module.exports = class MapboxImporter {
     series(tasks, function (error, results) {
       if (error) return console.log(error);
 
-      console.log(results);
+      console.log('Done!');
     }.bind(this));
   }
 }

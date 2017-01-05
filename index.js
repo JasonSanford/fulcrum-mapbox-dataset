@@ -6,12 +6,10 @@ const Fulcrum = require('fulcrum-app');
 const Mapbox = require('mapbox');
 
 const fulcrumCore = require('./core');
-const MapboxImporter = require('./mapbox_importer')
+const MapboxImporter = require('./mapbox_importer');
 const inquirer = require('inquirer');
 
 const argv = require('minimist')(process.argv.slice(2));
-
-//new MapboxImporter(formId, fulcrumToken, mapboxToken, datasetName);
 
 class App {
   constructor() {
